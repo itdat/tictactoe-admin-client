@@ -3,16 +3,15 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import "./App.css";
 import { Grid } from "@material-ui/core";
 
-import Home from "./pages/Home";
-import SignUp from "./pages/SignUp";
+import ListUser from "./pages/ListUser";
+import Chat from "./pages/Chat";
 import Login from "./pages/Login";
 import Logout from "./pages/Logout";
-import Profiles from "./pages/Profiles";
-import Rank from "./pages/Rank";
-import Online from "./pages/Online";
-import Guide from "./pages/Guide";
+import ProfileUser from "./pages/ProfileUser";
+import MatchHistory from "./pages/MatchHistory";
+import MatchPlayed from "./pages/MatchPlayed";
 
-import OnlineList from "./components/OnlineList";
+
 import ResponsiveDrawer from "./layout/ResponsiveDrawer";
 import { makeStyles } from "@material-ui/core/styles";
 
@@ -30,22 +29,19 @@ const App = () => {
       <Fragment>
         <ResponsiveDrawer>
           <Grid container>
-            <Grid item lg={10} xs={12} className={classes.content}>
+            <Grid item xs={12}  className={classes.content}>
               <Switch>
-                <Route exact path="/" component={Home} />
+                <Route exact path="/" component={ListUser} />
                 {/* Authenticate */}
+                <Route exact path="/listUser" component={ListUser} />
                 <Route exact path="/login" component={Login} />
-                <Route exact path="/sign-up" component={SignUp} />
                 <Route exact path="/logout" component={Logout} />
                 {/*  */}
-                <Route path="/profiles" component={Profiles} />
-                <Route exact path="/rank" component={Rank} />
-                <Route exact path="/online" component={Online} />
-                <Route exact path="/guide" component={Guide} />
+                <Route path="/profileUser" component={ProfileUser} />
+                <Route exact path="/matchHistory" component={MatchHistory} />
+                <Route exact path="/matchPlayed" component={MatchPlayed} />
+                <Route exact path="/chat" component={Chat} />
               </Switch>
-            </Grid>
-            <Grid item lg={2} xs={12}>
-              <OnlineList />
             </Grid>
           </Grid>
         </ResponsiveDrawer>

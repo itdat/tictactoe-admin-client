@@ -10,13 +10,13 @@ import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
-import HomeIcon from "@material-ui/icons/Home";
 import PersonIcon from "@material-ui/icons/Person";
+import ChatIcon from '@material-ui/icons/Chat';
+import ListAltIcon from '@material-ui/icons/ListAlt';
 import SupervisorAccountIcon from "@material-ui/icons/SupervisorAccount";
 import AssessmentIcon from "@material-ui/icons/Assessment";
+import VideogameAssetIcon from '@material-ui/icons/VideogameAsset';
 import AnnouncementIcon from "@material-ui/icons/Announcement";
-import AssignmentIcon from "@material-ui/icons/Assignment";
-import AssignmentIndIcon from "@material-ui/icons/AssignmentInd";
 import ExitToAppIcon from "@material-ui/icons/ExitToApp";
 import MenuIcon from "@material-ui/icons/Menu";
 import Toolbar from "@material-ui/core/Toolbar";
@@ -92,67 +92,49 @@ function ResponsiveDrawer(props) {
       </div>
       <Divider />
       <List>
-        <Link to="/" className={classes.link}>
+        <Link to="/listUser" className={classes.link}>
           <ListItem button>
             <ListItemIcon>
-              <HomeIcon />
+              <ListAltIcon />
             </ListItemIcon>
-            <ListItemText primary="Home" />
+            <ListItemText primary="List User" />
           </ListItem>
         </Link>
-        <Link to="/profile" className={classes.link}>
+        <Link to="/profileUser" className={classes.link}>
           <ListItem button>
             <ListItemIcon>
               <PersonIcon />
             </ListItemIcon>
-            <ListItemText primary="Profile" />
+            <ListItemText primary="Profile User" />
           </ListItem>
         </Link>
-        <Link to="/rank" className={classes.link}>
+        <Link to="/matchHistory" className={classes.link}>
           <ListItem button>
             <ListItemIcon>
               <AssessmentIcon />
             </ListItemIcon>
-            <ListItemText primary="Rank" />
+            <ListItemText primary="Match History" />
           </ListItem>
         </Link>
-        <Link to="/online" className={classes.link}>
+        <Link to="/matchPlayed" className={classes.link}>
           <ListItem button>
             <ListItemIcon>
-              <SupervisorAccountIcon />
+              <VideogameAssetIcon />
             </ListItemIcon>
-            <ListItemText primary="Online" />
+            <ListItemText primary="Match Played" />
           </ListItem>
         </Link>
-        <Link to="/guide" className={classes.link}>
+        <Link to="/chat" className={classes.link}>
           <ListItem button>
             <ListItemIcon>
-              <AnnouncementIcon />
+              <ChatIcon />
             </ListItemIcon>
-            <ListItemText primary="Guide" />
+            <ListItemText primary="Chat" />
           </ListItem>
         </Link>
       </List>
       <Divider />
-      <List>
-        <Link to="/login" className={classes.link}>
-          <ListItem button>
-            <ListItemIcon>
-              <AssignmentIndIcon />
-            </ListItemIcon>
-            <ListItemText primary="Login" />
-          </ListItem>
-        </Link>
-        <Link to="/sign-up" className={classes.link}>
-          <ListItem button>
-            <ListItemIcon>
-              <AssignmentIcon />
-            </ListItemIcon>
-            <ListItemText primary="Sign-up" />
-          </ListItem>
-        </Link>
-      </List>
-      <Divider />
+      
       <List>
         <Link to="/logout" className={classes.link}>
           <ListItem button>

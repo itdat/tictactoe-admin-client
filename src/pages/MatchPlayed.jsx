@@ -1,8 +1,8 @@
 import React from "react";
 import { Switch, Route } from "react-router-dom";
-import Profile from "./Profile";
+import Profile from "./ProfileUser";
 
-const Profiles = ({ match }) => {
+const MatchPlayed = ({ match }) => {
   console.log(match.path);
   return (
     <Switch>
@@ -12,4 +12,4 @@ const Profiles = ({ match }) => {
   );
 };
 
-export default Profiles;
+export default MatchPlayed;

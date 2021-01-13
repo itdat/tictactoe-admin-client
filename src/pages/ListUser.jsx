@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from "react";
 import { withStyles, makeStyles } from "@material-ui/core/styles";
 import Table from "@material-ui/core/Table";
@@ -9,7 +8,7 @@ import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
 import Paper from "@material-ui/core/Paper";
 import Grid from "@material-ui/core/Grid";
-import {Container} from "@material-ui/core";
+import { Container } from "@material-ui/core";
 import Search from "./../components/Search/UserSearchHeader";
 
 import axios from "axios";
@@ -33,18 +32,18 @@ const useStyles = makeStyles({
     minWidth: 700,
   },
 });
-const loadData = (id, result, room, level, competitor, date) => {
-  return { id, result, room, level, competitor, date };
+const loadData = (id, username, email, match, cup, rank, winRatio) => {
+  return { id, username, email, match, cup, rank, winRatio };
 };
-// const rows = [
-//   loadData(1, true, "solo", 5, "nvh", "22/12/2020"),
-//   loadData(2, false, "play", 4, "ntd", "30/12/2020"),
-//   loadData(3, false, "hard", 3, "ntd", "30/12/2020"),
-//   loadData(4, true, "fun", 2, "ntd", "30/12/2020"),
-// ];
+const rows = [
+  loadData(1, "nvanhuy", "nvh@gmail.com", 500, 100, 1,"50%" ),
+  loadData(2, "ntuandat", "ntd@gmail.com", 400, 90, 2, "50%"),
+  loadData(3, "ltuyen", "ltu@gmail.com" ,300, 120, 3, "50%"),
+  loadData(4, "tvminhhung", "tvmh@gmail.com" ,200, 180, 4, "50%"),
+];
 const History = () => {
   const classes = useStyles();
-  const [rows, setRows] = useState([]);
+  //const [rows, setRows] = useState([]);
   const history = useHistory();
   //const username = "nvh";
   const [name] = useState(localStorage.getItem("currentName") || "");
@@ -54,26 +53,24 @@ const History = () => {
   };
 
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  useEffect(async () => {
-    const res = await axios(`http://localhost:4000/users/history/${name}`);
-    console.log(res.data);
-    setRows([...res.data]);
-  }, [rows.id]);
+  // useEffect(async () => {
+  //   const res = await axios(`http://localhost:4000/users/history/${name}`);
+  //   console.log(res.data);
+  //   setRows([...res.data]);
+  // }, [rows.id]);
   return (
     <Container>
-      <h1>Danh sách người dùng</h1>
+      <h1>List User</h1>
       <Grid container justify="flex-end" alignItems="center">
         <Search />
-        </Grid>
+      </Grid>
       <Grid
         container
         direction="row"
         justify="space-between"
         alignItems="center"
         style={{ marginTop: "25px", marginBottom: "25px" }}
-      >
-        
-      </Grid>
+      ></Grid>
       <TableContainer component={Paper}>
         <Table className={classes.table} aria-label="customized table">
           <TableHead>
@@ -89,15 +86,12 @@ const History = () => {
           <TableBody>
             {rows.map((row) => (
               <StyledTableRow key={row.id} hover onClick={handleRowClick}>
-                <StyledTableCell style={{ padding: 5 }}>  
-                </StyledTableCell>
-                <StyledTableCell>        
-                </StyledTableCell>
-                <StyledTableCell>{row.room}</StyledTableCell>
-                <StyledTableCell>
-                </StyledTableCell>
-                <StyledTableCell>{row.competitor}</StyledTableCell>
-                <StyledTableCell>{row.date}</StyledTableCell>
+                <StyledTableCell>{row.username}</StyledTableCell>
+                <StyledTableCell>{row.email}</StyledTableCell>
+                <StyledTableCell>{row.match}</StyledTableCell>
+                <StyledTableCell>{row.cup}</StyledTableCell>
+                <StyledTableCell>{row.rank}</StyledTableCell>
+                <StyledTableCell>{row.winRatio}</StyledTableCell>
               </StyledTableRow>
             ))}
           </TableBody>

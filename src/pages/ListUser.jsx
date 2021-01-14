@@ -54,7 +54,7 @@ const History = () => {
 
   // eslint-disable-next-line react-hooks/exhaustive-deps
   // useEffect(async () => {
-  //   const res = await axios(`http://localhost:4000/users/history/${name}`);
+  //   const res = await axios(`${process.env.REACT_APP_API_URL}/users/history/${name}`);
   //   console.log(res.data);
   //   setRows([...res.data]);
   // }, [rows.id]);

@@ -21,6 +21,8 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+const ENDPOINT = process.env.REACT_APP_API_URL;
+
 const App = () => {
   const classes = useStyles();
 
